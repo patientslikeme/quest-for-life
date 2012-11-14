@@ -158,7 +158,7 @@ class Survey < ActiveRecord::Base
   validates_presence_of :slug
   validates_uniqueness_of :slug, :on => :create
 
-  before_validation_on_create :set_slug
+  before_validation :set_slug, :on => :create
   before_validation :strip_at_from_twitter_username
   before_save :store_group_demigraphics
   before_save :calculate_quotients

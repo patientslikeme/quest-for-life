@@ -31,8 +31,8 @@ module ApplicationHelper
       end
     end
     
-    haml_tag :a, {:href => path, :class => class_name, :title => definition} do
-      haml_concat(text)
+    content_tag :a, {:href => path, :class => class_name, :title => definition} do
+      concat(text)
 #      haml_tag :span, ' &#9660;', :class => 'carat' if @parameter == url
     end
   end
@@ -60,8 +60,8 @@ module ApplicationHelper
     }[parameter.to_s]
   end
   
-  def drake_operator(op='&times;')
-    haml_tag :span, op, :class => 'operator'
+  def drake_operator(op='×')
+    content_tag :span, op, :class => 'operator'
   end
   
   def drake_number

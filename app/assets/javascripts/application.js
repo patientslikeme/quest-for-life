@@ -1,3 +1,6 @@
+//= require jquery
+//= require_tree .
+
 $(function() {
   $("form:not(.filter) :input:visible:enabled:first").focus();
   $("p.start-survey-prompt a").click(function(e) {

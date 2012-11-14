@@ -1,11 +1,11 @@
-@import compass/utilities.sass
-@import partials/_mixins.sass  
+@import compass/utilities
+@import partials/_mixins
   
 
 body
   background:
     color: #4851a6
-    image: url(/images/gradient-page.png)
+    image: url(gradient-page.png)
     repeat: repeat-x
   font-family: Verdana, Arial, sans-serif
   font-size: 10pt
@@ -20,12 +20,12 @@ body
 #page
   background:
     color: transparent
-    image: url(/images/banner.png)
+    image: url(banner.png)
     position: 100% 0
     repeat: no-repeat
-  /position: relative
-  /margin: 0 auto
-  /width: 960px
+  //position: relative
+  //margin: 0 auto
+  //width: 960px
   +width_constraints
 
 .banner
@@ -34,11 +34,11 @@ body
   z-index: 1
   h1
     position: relative
-    /+outline(yellow)
+    //+outline(yellow)
     +width_constraints
     a
       background:
-        image: url(/images/logo.png)
+        image: url(logo.png)
         position: 0 0
         repeat: no-repeat
       color: #fff
@@ -60,12 +60,12 @@ body
     :color #fff
 
   #main-nav
-    /margin 0 auto
+    //margin 0 auto
     position: relative
     +width_constraints
     dl
       &.equation
-        +border_radius(!main_nav_radius)
+        +border_radius($main_nav_radius)
         background-color: rgba(192,192,192,.1)
         color: #ccc
         font:
@@ -137,13 +137,13 @@ body
   text-align: center
   font-size: 11px
   font-family: arial, sans-serif
-  / color: #21254c
+  // color: #21254c
   color: #ffffff
   .menu
     font-size: 120%
     margin-bottom: .5em
   a
-    / color: #11152c
+    // color: #11152c
     color: #ddd
     text-decoration: none
     &:hover
@@ -153,9 +153,9 @@ body
         text-decoration: none
 
 blockquote.signage
-  /float: right
+  //float: right
   margin-left: 1em
-  /position: relative
+  //position: relative
   top: -170px
   z-index: 99
   p
@@ -166,7 +166,7 @@ blockquote.signage
     &.iya
       a
         background:
-          image: url(/images/iya_logo_small.png)
+          image: url(iya_logo_small.png)
           position: 0 0
           repeat: no-repeat
         display: block
@@ -176,7 +176,7 @@ blockquote.signage
         -moz-box-shadow: 2px 2px 8px #000
     &.rumble
       a
-        background: url(/images/rumble-badge.png) no-repeat 0 0
+        background: url(assets/rumble-badge.png) no-repeat 0 0
         display: block
         height: 102px
         position: fixed
@@ -192,7 +192,7 @@ blockquote.signage
         img
           display: block
           margin-bottom: .3em
-        +rounded_button("/images/twitter_gradient.png", "#9ae4e8", "94px", "70%", "#333", "0 6px", "2px 2px 8px #000", "#0084B4")
+        +rounded_button("twitter_gradient.png", "#9ae4e8", "94px", "70%", "#333", "0 6px", "2px 2px 8px #000", "#0084B4")
 
 #content
 
@@ -267,10 +267,10 @@ blockquote.signage
   margin: 0 auto 0 auto
   text-align: left
   
-  /-moz-column-gap: 1em
-  /-moz-column-width: 380px
-  /-webkit-column-gap: 1em
-  /-webkit-column-width: 380px
+  //-moz-column-gap: 1em
+  //-moz-column-width: 380px
+  //-webkit-column-gap: 1em
+  //-webkit-column-width: 380px
   
   #main  
     position: relative
@@ -316,21 +316,21 @@ blockquote.signage
           text-decoration: none
         
     a[target~='_blank']:after
-      content: url(/images/external_link.png)
+      content: url(//images//external_link.png)
       color: #ccc
       font:
         size: 90%
         weight: normal
 
     p.start-survey-prompt
-      +rounded_button("/images/gradient-green.png", "#5c992e", "520px", "140%", "#3C791E")
+      +rounded_button("//images//gradient-green.png", "#5c992e", "520px", "140%", "#3C791E")
       
     .tweet-result
       a
         img
           display: block
           margin-bottom: .3em
-        +rounded_button("/images/twitter_gradient.png", "#9ae4e8", "320px", "140%", "#4f8a9e", "6px 6px", "2px 2px 8px #000", "#0084B4")
+        +rounded_button("//images//twitter_gradient.png", "#9ae4e8", "320px", "140%", "#4f8a9e", "6px 6px", "2px 2px 8px #000", "#0084B4")
   
     #participate, #teachers
       padding: .5em 1em
@@ -356,7 +356,7 @@ blockquote.signage
       margin-top: 1em
       padding: 1em
       margin-top: 1em
-      background: #a2cb52 url(/images/gradient-green2.png) repeat-x
+      background: #a2cb52 url(//images//gradient-green2.png) repeat-x
       border: 1px solid #5c992e
 
       fieldset.parameter
@@ -406,7 +406,7 @@ blockquote.signage
       font-family: 'Helvetica Neue', Helvetica, sans-serif
       font-weight: bold
       padding: 4px 8px 2px 8px
-      background: #5c992e url(/images/gradient-green-button.png) repeat-x
+      background: #5c992e url(//images//gradient-green-button.png) repeat-x
       border: 1px solid #3C791E
       color: #222
       text-shadow: 0 1px 1px #e5e573
@@ -429,18 +429,18 @@ blockquote.signage
     margin: 0 0 1em 0
   
   a
-    /color: #3ac1ff
+    //color: #3ac1ff
     font-weight: bold
     text-decoration: none
     &:hover
-      /text-decoration: underline
+      //text-decoration: underline
       
 #parameter-symbol
   font:
     size: 60px
     family: Georgia, Serif
     style: italic
-  / float: right
+  // float: right
   margin-left: .25em
   position: absolute
   right: 0
@@ -470,7 +470,7 @@ label[for]:hover
 
 
 input#openid_url
-  background: url(/images/openid.gif) no-repeat
+  background: url(//images//openid.gif) no-repeat
   background-color: #fff
   background-position: 0 50%
   color: #000
@@ -529,7 +529,7 @@ body.js dd.detail
 .content-table
   td
     vertical-align: top
-  / +border_radius(.25em)
+  // +border_radius(.25em)
   
 table#data
   :font-family Arial

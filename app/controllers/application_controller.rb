@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   helper :all
 
-  alias_method :logged_in?, :signed_in?
-  helper_method :logged_in?
+  #alias_method :logged_in?, :signed_in?
+  #helper_method :logged_in?
 
   def record_not_found
     render template: '/error/error_404', status: 404, layout: 'application'
