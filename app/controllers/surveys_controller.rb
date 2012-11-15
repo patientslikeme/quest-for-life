@@ -26,40 +26,39 @@ class SurveysController < ApplicationController
   before_filter :only_show_if_completed, :only => :show
   before_filter :authorize, :only => [:edit, :update]
   
-  make_resourceful do
-    actions :new, :create, :show, :index, :edit, :update
-    belongs_to :survey_group
+  inherit_resources
+  belongs_to :survey_group
 
-    before :index, :show do
-      @parameter = 'n' 
-    end
+  def index
+    @parameter = 'n'
+  end
+  
+  def show
+    @parameter = 'n'
+  end
 
-    before :edit do
-      if @parameter == 'n'
-        redirect_to :action => :show, :id => params[:id]
-      end
-    end
-    
-    before :update do
-      logger.warn params[:activity_id]
-    end
-    
-    after :create do
-      # store survey id in the user's session, which authorizes them to edit/update
+  def edit
+    redirect_to action: :show, id: params[:id] if @parameter == 'n'
+  end
+
+  def update
+    logger.warn params[:activity_id]
+    update!
+  end
+
+  def create
+    create! do |format|
       session[:survey_id] = current_object.id
+      format.html { redirect_to edit_survey_path(current_object) }
     end
+  end
 
-    response_for :create do |format|
-      format.html do
-        redirect_to edit_survey_path(current_object)
-      end
-    end
-    response_for :update do |format|
+  def update
+    update! do |format|
       format.html do
         if params[:demographics].present?
-          # just asked for demographic data, show results
           redirect_to(current_object)
-        else        
+        else
           n = next_parameter
           if n
             redirect_to survey_parameter_path(current_object, n)
@@ -80,6 +79,7 @@ class SurveysController < ApplicationController
     @current_object ||= current_model.find_by_slug(params[:id]) if params[:id].present?
     return @current_object
   end
+  helper_method :current_object
 
   private
   def next_parameter

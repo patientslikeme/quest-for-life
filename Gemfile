@@ -11,6 +11,7 @@ gem 'devise'
 
 gem 'simple_form'
 gem 'RedCloth'
+gem 'inherited_resources'
 
 # Gems used only for assets and not required
 # in production environments by default.
