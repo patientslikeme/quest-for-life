@@ -1,4 +1,6 @@
 QuestForLife::Application.routes.draw do
+  devise_for :users
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -13,17 +15,6 @@ QuestForLife::Application.routes.draw do
   match '/equation/:parameter', controller: 'surveys', action: 'edit', as: 'equation_parameter'
 
   resources :rational_options
-
-  resources :users do
-    resources :password, controller: 'clearance/passwords'
-    resources :confirmation, controller: 'confirmations'
-  end
-
-  match 'session', controller: 'sessions', action: 'create', as: 'open_id_complete'
-  resources :session
-
-  match '/login', controller: 'sessions', action: 'new', as: 'sign_in'
-  match '/logout', controller: 'sessions', action: 'destroy', as: 'sign_out'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
@@ -77,5 +68,5 @@ QuestForLife::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  # match ':controller(/:action(/:id))(.:format)'
+  match ':controller(/:action(/:id))(.:format)'
 end

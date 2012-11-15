@@ -24,5 +24,6 @@
     Invite your students to think about this question and see their answers compared with the entire class.
     
     This can help drive class discussion over each individual parameters, the answers, and what those answers might mean to humanity.
-  %p
-    = link_to 'Teachers, login or register to use this in your classroom…', new_session_path
+  - unless current_user
+    %p
+      = link_to 'Teachers, login or register to use this in your classroom…', new_user_session_path
