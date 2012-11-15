@@ -82,6 +82,8 @@ body
             display: inline
           html[lang~=EN] &
             display: inline-block
+            margin:
+              left: 0
           text-align: center
           letter-spacing: -4px
         dt
@@ -316,21 +318,21 @@ blockquote.signage
           text-decoration: none
         
     a[target~='_blank']:after
-      content: url(//images//external_link.png)
+      content: url(external_link.png)
       color: #ccc
       font:
         size: 90%
         weight: normal
 
     p.start-survey-prompt
-      +rounded_button("//images//gradient-green.png", "#5c992e", "520px", "140%", "#3C791E")
+      +rounded_button("gradient-green.png", "#5c992e", "520px", "140%", "#3C791E")
       
     .tweet-result
       a
         img
           display: block
           margin-bottom: .3em
-        +rounded_button("//images//twitter_gradient.png", "#9ae4e8", "320px", "140%", "#4f8a9e", "6px 6px", "2px 2px 8px #000", "#0084B4")
+        +rounded_button("twitter_gradient.png", "#9ae4e8", "320px", "140%", "#4f8a9e", "6px 6px", "2px 2px 8px #000", "#0084B4")
   
     #participate, #teachers
       padding: .5em 1em
