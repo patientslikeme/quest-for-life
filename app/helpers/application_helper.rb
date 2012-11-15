@@ -97,6 +97,6 @@ module ApplicationHelper
   end
 
   def make_survey_prompt
-    partial 'shared/survey_prompt' unless current_object.present?
+    render partial: 'shared/survey_prompt' unless current_object.present?
   end 
 end
