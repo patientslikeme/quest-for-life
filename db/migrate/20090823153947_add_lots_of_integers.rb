@@ -12,7 +12,7 @@ class AddLotsOfIntegers < ActiveRecord::Migration
   end
 
   def self.add_int i
-    if RationalOption.quotient_is(i).empty?
+    if RationalOption.where(:quotient => i).none?
       say "Adding #{i}"
       RationalOption.create! :numerator => i, :denominator => 1
     end

@@ -1,0 +1,75 @@
+$main_nav_radius: 10px
+
+=width_constraints
+  min-width: 400px
+  margin: 0 auto
+  max-width: 900px
+=outline($color: red)
+  * html &
+    border = 1px "dotted" $color
+  html[lang~=en] &
+    border = 1px "dotted" $color
+  html[lang~=EN] &
+    outline = 1px "dotted" $color
+
+=border_radius($radius)
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
+=drake_sub_fix
+  #header #main-nav dl.equation a.drake span.function sub
+    top: .2em
+
+=parameter_symbol_fix
+  #parameter-symbol sub,
+  #parameter-symbol sup
+    font-size: 35px
+
+=ie7_plus_fixes
+  +drake_sub_fix
+  +parameter_symbol_fix
+
+  #header #main-nav dl.equation,
+  #parameter-symbol
+    background: url(/images/alpha.png) repeat
+    
+=rounded_button($bg_img, $bg_color, $width, $font_size: "100%", $font_color: "#3C791E", $padding: 0, $box_shadow: "4px 4px 16px #000", $border_color: "#5c992e")
+  -moz-box-shadow: $box_shadow
+  background:
+    color: $bg_color
+    image: url($bg_img)
+    repeat: repeat-x
+  border: 1px solid $border_color
+  +border_radius(.5em)
+  color: $font_color
+  display: block
+  font:
+    family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+    size: $font_size
+    weight: normal
+  margin: 1em 0
+  padding: $padding
+  text:
+    decoration: none
+    shadow: 0 1px 1px #E5E573
+  width: $width
+  &:hover
+    text-decoration: none
+
+  a
+    display: block
+    padding: .75em 1em
+    color: $font_color
+    strong
+      display: block
+      margin-top: .25em
+      text-align: right
+      color: #111
+      text-shadow: 0 1px 1px #9c9
+      font-weight: bold
+    &:hover
+      text-decoration: none !important
+      strong
+        color: #000
+        text-shadow: 0 0 8px #fff

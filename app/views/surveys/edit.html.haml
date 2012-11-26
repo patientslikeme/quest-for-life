@@ -16,17 +16,17 @@
   })
 
 - if @parameter == 'demographics'
-  = partial 'demographics'
+  = render partial: 'demographics'
 
 - else
   #parameter-symbol
     = parameter_to_drake_component(@parameter)
 
-  = partial @parameter
+  = render @parameter
 
   - if current_object.present?
-    = partial 'parameter_form', :parameter => @parameter
+    = render partial: 'parameter_form', locals: { :parameter => @parameter }
   
   #comments
     %h3 Discussion
-    = partial '/shared/disqus'
+    = render partial: '/shared/disqus'

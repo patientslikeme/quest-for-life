@@ -1,0 +1,649 @@
+@import compass/utilities
+@import partials/_mixins
+  
+
+body
+  background:
+    color: #4851a6
+    image: url(gradient-page.png)
+    repeat: repeat-x
+  font-family: Verdana, Arial, sans-serif
+  font-size: 10pt
+  padding: 0
+  margin: 0
+  html[lang~=en] &
+    overflow-x: hidden
+  html[lang~=EN] &
+    overflow-x: visible 
+
+
+#page
+  background:
+    color: transparent
+    image: url(banner.png)
+    position: 100% 0
+    repeat: no-repeat
+  //position: relative
+  //margin: 0 auto
+  //width: 960px
+  +width_constraints
+
+.banner
+  height: 93px
+  position: relative
+  z-index: 1
+  h1
+    position: relative
+    //+outline(yellow)
+    +width_constraints
+    a
+      background:
+        image: url(logo.png)
+        position: 0 0
+        repeat: no-repeat
+      color: #fff
+      display: block
+      width: 370px
+      height: 106px
+      left: 0
+      position: absolute
+      top: 0
+      text-indent: -800em
+
+#header
+  left: 0
+  top: 0
+  position: relative
+  z-index: 2
+    
+  a
+    :color #fff
+
+  #main-nav
+    //margin 0 auto
+    position: relative
+    +width_constraints
+    dl
+      &.equation
+        +border_radius($main_nav_radius)
+        background-color: rgba(192,192,192,.1)
+        color: #ccc
+        font:
+          family: Georgia, Serif
+          size: 30px
+          style: italic
+        margin-bottom: 1em
+        
+        dt, dd
+          display: inline-block
+          * html &
+            display: inline
+          html[lang~=en] &
+            display: inline
+          html[lang~=EN] &
+            display: inline-block
+            margin:
+              left: 0
+          text-align: center
+          letter-spacing: -4px
+        dt
+          position: absolute
+          left: -999em
+          
+        span.operator
+          margin: 0 .25em
+          font:
+            family: 'Arial Narrow', 'Helvetica Neue', Helvetica, Sans-serif
+            size: 20px
+            style: normal
+        
+          
+        a
+          &.drake
+            color: #ccc
+            line-height: 2.0
+            text-decoration: none
+            span
+              &.function
+                display: inline-block
+                letter-spacing: -.2em
+                min-height: 50px
+                min-width: 30px
+                padding: 0 .5em
+                text-shadow: 0 0 2px #000
+                sub
+                  position: relative
+                  top: -.25em
+                sup
+                  left: .2em
+                  position: relative
+                  top: .25em
+            &:hover
+              span.function
+                color: #fff
+                background-color: #777
+                background-color: rgba(0,0,0, .5)
+                
+            &.yah
+              span.function
+                color: #fff
+                background-color: #777
+                background-color: rgba(255, 255, 255, .2)
+
+@media all and (-webkit-min-device-pixel-ratio:0)
+  +drake_sub_fix
+  +parameter_symbol_fix
+
+#footer
+  margin: 30px 0
+  text-align: center
+  font-size: 11px
+  font-family: arial, sans-serif
+  // color: #21254c
+  color: #ffffff
+  .menu
+    font-size: 120%
+    margin-bottom: .5em
+  a
+    // color: #11152c
+    color: #ddd
+    text-decoration: none
+    &:hover
+      text-decoration: underline
+    &.ui-slider-handle
+      &:hover
+        text-decoration: none
+
+blockquote.signage
+  //float: right
+  margin-left: 1em
+  //position: relative
+  top: -170px
+  z-index: 99
+  p
+    width: 115px
+    a
+      &:hover
+        text-decoration: none
+    &.iya
+      a
+        background:
+          image: url(iya_logo_small.png)
+          position: 0 0
+          repeat: no-repeat
+        display: block
+        height: 204px
+        text-indent: -800em
+        width: 108px
+        -moz-box-shadow: 2px 2px 8px #000
+    &.rumble
+      a
+        background: url(assets/rumble-badge.png) no-repeat 0 0
+        display: block
+        height: 102px
+        position: fixed
+        right: 0
+        text-indent: -800em
+        top: 0
+        width: 103px
+        &:focus
+          -moz-outline: none
+    
+    &.twitter
+      a
+        img
+          display: block
+          margin-bottom: .3em
+        +rounded_button("twitter_gradient.png", "#9ae4e8", "94px", "70%", "#333", "0 6px", "2px 2px 8px #000", "#0084B4")
+
+#content
+
+  #main
+    thead
+      th
+        :background rgba(0,0,0,.3)
+        :font-weight bold
+        :font-size 80%
+        :padding .5em
+    tbody
+      td, th
+        :padding .5em
+        :vertical-align top
+      input[type=submit]
+        :margin-top 0
+      
+    .vertical-tabs
+      .tab-body
+        +clearfix
+        :min-height 300px
+        :margin-left 50px
+        :background rgba(0,0,0,.5)
+        :padding 1em
+        :-moz-border-radius-topright .5em
+        :-moz-border-radius-bottomleft .5em
+        :-moz-border-radius-bottomright .5em
+        
+        .columns
+          .column
+            :width 250px
+            :float left
+            &.legend
+              :width 100px
+              :margin-left 20px
+        
+      ol.tabs
+        :float left
+        :width 50px
+        +no-bullets
+        li
+          a
+            :font-size 150%
+            :font-family Georgia, serif
+            :font-style italic
+            :display block
+            :padding 4px 8px
+            :text-align center
+            :font-weight normal
+            :-moz-border-radius-topleft .5em
+            :-moz-border-radius-bottomleft .5em
+            :letter-spacing -4px
+            &:hover
+              :background rgba(0,0,0,.2)
+              :text-decoration none
+            &.yah
+              :color #fff
+              :background rgba(0,0,0,.5)
+
+
+  #sidebar
+    margin-left: 20px
+    position: absolute
+    right: 0
+    top: 0
+    
+  color: #fff
+  +pie-clearfix
+  font-family: 'Helvetica Neue', Helvetica, 'Arial Narrow', Arial, Verdana, Georgia, 'Times New Roman', Serif
+  position: relative
+  +width_constraints
+  margin: 0 auto 0 auto
+  text-align: left
+  
+  //-moz-column-gap: 1em
+  //-moz-column-width: 380px
+  //-webkit-column-gap: 1em
+  //-webkit-column-width: 380px
+  
+  #main  
+    position: relative
+    min-height: 500px
+    width: 720px
+    
+    h2
+      font-weight: bold
+      font-size: 140%
+
+    h3
+      +clearfix
+      margin: 0 0 1em 0
+      font-size: 110%
+      font-weight: bold
+      width: 525px
+
+    em
+      font-style: italic
+
+    #account-menu
+      width: 100%
+      height: 2em
+      span#menu-items
+        float: right
+        
+    #disqus_thread #dsq-content h3
+      font-size: 100%      
+
+    dl, p, ul
+      text-shadow: 1px 1px 2px #000
+
+    dd
+      ul, li, p
+        :margin-left 1em
+    
+    a
+      color: #3ac1ff
+      &:hover
+        text-decoration: underline
+      &.ui-slider-handle
+        &:hover
+          text-decoration: none
+        
+    a[target~='_blank']:after
+      content: url(external_link.png)
+      color: #ccc
+      font:
+        size: 90%
+        weight: normal
+
+    p.start-survey-prompt
+      +rounded_button("gradient-green.png", "#5c992e", "520px", "140%", "#3C791E")
+      
+    .tweet-result
+      a
+        img
+          display: block
+          margin-bottom: .3em
+        +rounded_button("twitter_gradient.png", "#9ae4e8", "320px", "140%", "#4f8a9e", "6px 6px", "2px 2px 8px #000", "#0084B4")
+  
+    #participate, #teachers
+      padding: .5em 1em
+      +border_radius(1em)
+      min-height: 240px
+      background-color: #242853
+      background: rgba(0,0,0,.4)
+    
+    #password_form,
+    #participate
+      float: left
+      width: 46%
+      
+    #teachers
+      :float right
+      :width 300px
+      :margin-left 1em
+    
+      
+    #form
+      +border_radius(.5em)
+      +pie-clearfix
+      margin-top: 1em
+      padding: 1em
+      margin-top: 1em
+      background: #a2cb52 url(//images//gradient-green2.png) repeat-x
+      border: 1px solid #5c992e
+
+      fieldset.parameter
+        label, select
+          display: none
+      
+      p
+        color: #222
+        text-shadow: 0 1px 1px #9c9
+        font-family: 'Helvetica Neue', Helvetica, sans-serif
+        font-size: 100%
+        font-weight: bold
+        
+
+      .humanized-value
+        :float right
+        :margin 1.25em 1em 0 0
+        :color #222
+        :text-shadow 0 1px 1px #9c9
+        :font-family 'Helvetica Neue', Helvetica, sans-serif
+        :font-weight bold
+        
+      fieldset
+        li
+          :margin-bottom .5em
+        &.buttons
+          :float right
+          li
+            :margin-bottom 0
+        
+      label
+        :font-size 90%
+        :color #222
+        :text-shadow 0 1px 1px #9c9
+        :font-weight bold
+        :font-family 'Helvetica Neue', Helvetica, sans-serif
+      input[type=text], select
+        :font-size 100%
+        :border 2px solid #5c992e
+        :padding .25em
+        
+      
+
+    input[type=submit]
+      margin-top: 1em
+      font-size: 90%
+      font-family: 'Helvetica Neue', Helvetica, sans-serif
+      font-weight: bold
+      padding: 4px 8px 2px 8px
+      background: #5c992e url(//images//gradient-green-button.png) repeat-x
+      border: 1px solid #3C791E
+      color: #222
+      text-shadow: 0 1px 1px #e5e573
+      +border_radius(.5em)
+      &:hover
+        color: #000
+        border-color: #000
+        
+
+    #comments
+      +border_radius(.5em)
+      background-color: #313771
+      padding: 1em
+      margin-top: 2em
+      border: 1px solid #20244a
+      dl, p, ul
+        text-shadow: none
+        
+  p
+    margin: 0 0 1em 0
+  
+  a
+    //color: #3ac1ff
+    font-weight: bold
+    text-decoration: none
+    &:hover
+      //text-decoration: underline
+      
+#parameter-symbol
+  font:
+    size: 60px
+    family: Georgia, Serif
+    style: italic
+  // float: right
+  margin-left: .25em
+  position: absolute
+  right: 0
+  top: 0em
+  color: #999
+  text-shadow: 0 0 12px #000
+  background: rgba(0,0,0,.2)
+  padding: 0 .1em 0 .4em
+  +border_radius(.25em) 
+  z-index: 10
+  
+  sup
+    position: relative
+    top: .25em
+    left: -.4em
+  sub
+    position: relative
+    top: -.25em
+    left: -.5em
+
+dl.form dd
+  margin-left: 0
+
+
+label[for]:hover
+  text-decoration: underline
+
+
+input#openid_url
+  background: url(//images//openid.gif) no-repeat
+  background-color: #fff
+  background-position: 0 50%
+  color: #000
+  padding-left: 18px
+  
+  
+
+fieldset
+  :border-width 0
+  :padding 0
+  ol
+    :list-style-type none
+    :padding-left 0
+    label
+      display: block
+      padding-top: 0.5em
+      
+dt.bullet
+  margin-left: 1em
+  font-weight: bold
+  display: list-item
+  list-style-type: square
+body.js dd.detail
+  display: none
+  
+.illustration
+  float: right
+  margin-top: 2.0em
+  margin-left: 1em
+  width: 220px
+
+  .caption
+    :text-align right
+
+  img
+    display: block
+
+.caption
+  :font-size 10px
+  :font-family Arial, 'Helvetica Neue', Helvetica, sans-serif
+  :display block
+  :line-height 1.1
+  :margin-top 3px
+  :text-shadow none
+  
+.bullets
+  +clearfix
+
+#plaque
+  float: right
+  margin-left: 1em
+  position: relative
+  right: -0.5em
+  top: -0.37em
+
+.content-table
+  td
+    vertical-align: top
+  // +border_radius(.25em)
+  
+table#data
+  :font-family Arial
+  :font-size 12px
+  td, th
+    :padding .5em
+    :border-bottom 1px dotted #abf
+  th
+    :font-weight bold
+    :border-top 1px solid #abf
+    :border-bottom-style solid
+
+ol.legend
+  :float right
+  :width 100px
+  :margin-top 30px
+  :margin-right 10px
+  +no-bullets
+  li
+    :font-size 12px
+    :font-family Arial, sans-serif
+    :line-height 12px
+    :padding-bottom 1px
+  span
+    +inline-block
+    :width 12px
+    :height 12px
+    
+ol.pie-charts
+  width: 240px
+  +no-bullets
+  li
+    :background rgba(0,0,0,.4)
+    :height 100px
+    :margin-bottom 1em
+    :padding .5em
+    +border_radius(.5em)
+  h4
+    :font-size 90%
+    :font-weight bold
+    :font-family Helvetica, sans-serif
+    :padding-left 5px
+  dl
+    :float right
+    :font-family Arial, sans-serif
+    :font-size 10px
+    :width 100px
+    :margin 0
+    dt
+      :clear both
+      :float left
+      :color #ccc      
+      :text-shadow none
+      :text-align left
+      :padding-right 5px
+      :width 55px
+      :border-bottom 1px dotted #000
+    dd
+      :float left
+      :text-align right
+      :text-shadow none      
+      :width 40px
+      :border-bottom 1px dotted #000
+
+  .visualize
+    :background 0
+    :border 0
+    :float left
+    .visualize-info, 
+    .visualize-labels
+      display: none
+    
+.visualize, .visualize-labels, .visualize-label
+  :font-family Arial, sans-serif
+  :font-size 12px
+  :text-shadow none
+  
+  
+table.data
+  display: none
+
+ul.n-results
+  margin-top: 1em
+  li
+    +no-bullet
+    +clearfix
+    margin-bottom: .5em
+    dl
+      dt
+        float: left
+        font:
+          family: Georgia, 'Times New Roman', Serif
+          size: 150%
+          style: italic
+          weight: normal
+        line-height 4.0
+        text-align: center
+        width: 55px
+        text-shadow: 0 0 12px #000
+        background: rgba(0,0,0,.2)
+        padding: 0 .1em 0 .4em
+        +border_radius(.25em)
+        margin-right: 1em
+      dd
+        margin-left 150pt
+        
+#flash
+  :margin 1em 0
+  :background rgba(0,0,0,.3)
+  :padding 1em
+  
+.centered
+  text-align: center
+.right
+  text-align: right

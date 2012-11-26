@@ -7,8 +7,8 @@
   
 %script{:type => 'text/javascript'}
   - if @parameter.present?
-    var disqus_url = #{[Settings.base_url, 'equation', @parameter].join('/').to_json};
+    var disqus_url = "#{['equation', @parameter].join('/').to_json}";
   - else
-    var disqus_url = #{[Settings.base_url, request.path].join.to_json};
+    var disqus_url = "#{[request.path].join.to_json}";
 
-  var disqus_iframe_css = #{[Settings.base_url, 'stylesheets', 'compiled', 'disqus-form.css'].join('/').to_json};
+  var disqus_iframe_css = "#{'/stylesheets/disqus-form.css'.to_json}";

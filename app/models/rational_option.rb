@@ -38,7 +38,9 @@ class RationalOption < ActiveRecord::Base
   
   attr_accessible :numerator, :denominator
   
-  named_scope :integers, {:conditions=>{:quotient => Array(0..100)}}
+  scope :integers, {:conditions=>{:quotient => Array(0..100)}}
+  scope :quotient_lte, lambda { |n| where ['quotient < ?', n] } 
+  scope :quotient_gte, lambda { |n| where ['quotient > ?', n] } 
 
   def quotient_label
     if self.denominator > 1
