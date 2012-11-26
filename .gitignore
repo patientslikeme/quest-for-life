@@ -26,6 +26,5 @@ config/database.yml
 *.tmproj
 
 # Stylesheets
-/public/stylesheets/print.css
-/public/stylesheets/ie.css
-/public/stylesheets/compiled
+/public/stylesheets/*
+/public/javascripts/*

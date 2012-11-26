@@ -8,11 +8,6 @@
 - title 'Results'
 - summarize_parameter = params[:p] || 'n'
 
-%p
-  - if parent?
-    = parent_object.group_name
-    /= link_to parent_object.group_name, parent_object
-
 .vertical-tabs
   %ol.tabs
     - for parameter in ([:n] + Survey.parameter_columns)
